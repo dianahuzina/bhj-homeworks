@@ -1,7 +1,7 @@
 let statusDead = document.getElementById("dead");
 let statusLost = document.getElementById("lost");
 
-getHole = (index) => {
+let getHole = (index) => {
   let currentHole = document.getElementById(`hole${index}`);
   currentHole.onclick = function () {
     if (currentHole.className.includes("hole_has-mole")) {
