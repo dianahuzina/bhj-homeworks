@@ -2,7 +2,7 @@ const dropdownValue = document.querySelector(".dropdown__value");
 const dropdownList = document.querySelector(".dropdown__list");
 
 dropdownValue.addEventListener('click', function () {
-  dropdownList.classList.add("dropdown__list_active");
+  dropdownList.classList.toggle("dropdown__list_active");
 })
 
 dropdownList.addEventListener('click', function(event) {
