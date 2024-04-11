@@ -5,7 +5,7 @@ const addTask = document.getElementById("tasks__add");
 addTask.addEventListener('click', (event) => {
   event.preventDefault();
 
-  if (inputTask.value) {
+  if (inputTask.value.trim()) {
     const task = document.createElement("div");
     task.classList.add("task");
     task.innerHTML = `<div class="task__title">${inputTask.value}</div>`;

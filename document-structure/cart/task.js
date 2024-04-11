@@ -25,18 +25,15 @@ products.forEach(product => {
 
 function addProduct(product) {
   let quantity = product.querySelector(".product__quantity-value").textContent;
-  let productsInCart = cart.querySelectorAll(".cart__product");
+  let productsInCart = Array.from(cart.querySelectorAll(".cart__product"));
 
-  if (productsInCart.length > 0) {
-    for (let i = 0; i < productsInCart.length; i++) {
-      if (productsInCart[i].dataset.id === product.dataset.id) {
-        productsInCart[i].querySelector(".cart__product-count").textContent = parseInt(productsInCart[i].querySelector(".cart__product-count").textContent)
-          + parseInt(quantity);
-          return;
-      }
-    }
-  }
+  const productInCart = productsInCart.find(item => item.dataset.id === product.dataset.id);
 
+  if (productInCart) {
+    productInCart.querySelector(".cart__product-count").textContent = Number(productInCart.querySelector(".cart__product-count").textContent) + Number(quantity);
+    return;
+  } 
+  
   let item = document.createElement("div");
   item.classList.add("cart__product");
   item.dataset.id = product.dataset.id;
